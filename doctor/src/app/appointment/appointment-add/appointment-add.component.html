@@ -1,0 +1,536 @@
+<!-- <div style="color:black;background-color:aqua;" class="div">
+    <h1 align="center">Appointment Form</h1>
+    </div>
+    <div align="center"> 
+        
+        <form   class="form"> 
+            <table>
+          <tr><td>  <label>Patient Name:</label></td>
+         <td> <input type= "text"  name="Name" formControlName = "Name"   </td></tr>
+           <br/>
+           
+           <tr><td>  <label> Patient Age:</label></td>
+            <td> <input type= "number"  name="Age" formControlName = "Age"> </td></tr>
+              <br/>
+              <tr><td>  <label>Gender:</label></td>
+                <td><input type="radio" name="Gender" formControlName="Gender" value="Male">Male
+                <input type="radio" name="Gender" formControlName="Gender" value="Female">Female</td></tr>
+                <br/>
+              <tr><td>  <label>Appointment date:</label></td>
+                <td> <input type= "date"  name="date" formControlName = "date"> </td></tr>
+                <br>
+                
+                        <tr><td>  <label>Appointment time:</label></td>
+                   <td><input type="time" name="time" formControlName="time"   ></td></tr>
+
+                   <br>
+                   <tr><td>  <label>Issue:</label></td>
+                    <td><input type="text" name="Issue" formControlName="issue"   ></td></tr>
+                        
+                         
+                    <tr><td align="center" colspan="2">  <button type="submit" value="Submit" >Submit</button> </td></tr>
+         </table>
+        </form> -->
+<!-- 
+        <div class="card my-2 mx-auto" id="signup_card">
+          <div class="card-header text-center">
+            <h1 id="heading" class="mb-0 heading">BOOK </h1>
+            <h1 id="green" class="mb-0 heading">APPOINTMENT</h1>
+          </div>
+          <div class="card-body">
+            <form class="needs-validation" id="bookAppointmentForm" >
+              <h6 class="heading-small text-muted mb-4">Appointment</h6>
+      
+      
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label" class="form-control-label" for="dateOfAppointment">Date Of
+                      Appointment</label><span class="required">*</span>
+                    <input type="date" class="form-control datepicker " id="dateOfAppointment"
+                      placeholder="Select Date Of Appointment" formControlName="dateOfAppointment" value="25/11/2019"
+                      [ngClass]="{ 'is-invalid': submitted && f.dateOfAppointment.errors }">
+                    <div *ngIf="submitted && f.dateOfAppointment.errors" class="invalid-feedback">
+                      <div *ngIf="f.dateOfAppointment.errors.required">Date Of Appointment is required</div>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="selectTimeSlot">Select Time Slot</label>
+                    <span class="required">*</span>
+                    <select id="selectTimeSlot" class="form-control " formControlName="selectTimeSlot"
+                      [ngClass]="{ 'is-invalid': submitted && f.selectTimeSlot.errors }" placeholder="Select Time Slot">
+                      <option value="1">10am - 12pm</option>
+                      <option value="2">2pm - 4pm</option>
+                      <option value="3">6pm - 9pm</option>
+                    </select>
+                    <div *ngIf="submitted && f.selectTimeSlot.errors" class="invalid-feedback">
+                      <div *ngIf="f.selectTimeSlot.errors.required">Time Slot is required</div>
+                    </div>
+                  </div>
+      
+                </div>
+      
+              </div>
+              <div class="row">
+                <div class="col-md-6 text-center">
+      
+                  <button id="button1" class="btn btn-primary px-5 py-3 ml-auto mr-auto" (click)="bookWithAgent()"
+                    (mouseover)="showPrice1=true" (mouseout)="showPrice1=false">
+                    Book via Agent<br>
+                    <span *ngIf="!showPrice1"></span>
+                    <span *ngIf="showPrice1">{{medicare.amount*((100+agent.commission)/100) | currency:"INR"}}</span>
+                  </button>
+                  <div class="text-center ml-8 mr-auto">
+                    <img id="icon_premium" src="../../assets/img/crown.png"
+                      class="avatar rounded-circle mt-2 mb-2 ml-auto mr-auto"> <span id="punchLine"
+                      class="mt-2 mb-2">&nbsp;Skip
+                      long
+                      waiting</span>
+                  </div>
+                </div>
+                <div class="col-md-6 text-center">
+                  <button id="button2" class="btn btn-primary px-5 py-3 ml-auto mr-auto" (click)="book()"
+                    (mouseover)="showPrice2=true" (mouseout)="showPrice2=false">
+                    Book Now<br>
+                    <span *ngIf="!showPrice2"></span>
+                    <span *ngIf="showPrice2">{{medicare.amount | currency:"INR"}}</span>
+                  </button>
+                </div>
+      
+              </div>
+              <div class="row">
+                <div class="col-md-6 text-center pr-auto pl-auto">
+      
+                </div>
+                <div class="col-md-6 text-center">
+      
+                </div>
+      
+              </div>
+      
+      
+      
+            </form>
+      
+          </div>
+        </div>
+       </div>
+       --> 
+     <!-- <app-patienthome></app-patienthome>
+      <br>
+        <h1 align="center" style="background-color: darkgoldenrod;">Appointment Form</h1>
+      <div align="center"> 
+            
+        <form [formGroup]="aptForm" > 
+            <table>
+              <tr>
+               <td>  <label> Doctor Name:</label></td>
+                <td><div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type= "text" placeholder="DoctorName" name="DoctorName" formControlName = "DoctorName"> 
+                  <small  *ngIf="aptForm.controls['DoctorName'].touched && aptForm.controls['DoctorName'].invalid" class="text-danger">
+                    <div style="margin-left:20px ;" *ngIf="aptForm.controls['DoctorName'].errors.required"><span style="float:right;">DoctorName is required.</span></div>
+                    
+                   </small> </div>
+                </td>
+                
+              </tr>
+              
+                <br><br/>
+                <tr>
+                  <td><div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-crown"></i></span> <select name="Speciality" formControlName="Speciality" placeholder="Speciality">
+                      <option value="" selected disabled >Speciality</option>
+                    <option value="bone" >Bone</option>
+                    <option value="Heart" >Heart</option>
+                    <option value="Brain" >Brain</option>
+                    <option value="Kidney">Kidney</option>
+                  </select>
+                  <small  *ngIf="aptForm.controls['Speciality'].touched && aptForm.controls['Speciality'].invalid" class="text-danger">
+                    <div style="margin-left:20px ;" *ngIf="aptForm.controls['Speciality'].errors.required"><span style="float:right;">Doctor Speciality is required.</span></div>
+                  
+                   </small></div>
+                </td></tr>
+                  <br><br/>
+          <tr><td><div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user"></i></span> <input type= "text" placeholder="Your Name"  name="PatientName" formControlName = "PatientName"   > 
+            <small  *ngIf="aptForm.controls['PatientName'].touched && aptForm.controls['PatientName'].invalid" class="text-danger">
+              <div style="margin-left:20px ;" *ngIf="aptForm.controls['PatientName'].errors.required"><span style="float:right;">Your Name is required.</span></div>
+            
+             </small></div>
+          </td></tr>
+           <br/>
+           
+           
+           <tr> <td> <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-pen-square"></i></span><input type= "number"  name="PatientAge" formControlName = "PatientAge" placeholder="Age">
+            <small  *ngIf="aptForm.controls['PatientAge'].touched && aptForm.controls['PatientAge'].invalid" class="text-danger">
+              <div style="margin-left:20px ;" *ngIf="aptForm.controls['PatientAge'].errors.required"><span style="float:right;">Your Age is required.</span></div>
+            
+             </small></div>
+          </td></tr>
+              <br/>
+              <tr><td><div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-user-edit"></i></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="form-check">
+                <input class="form-check-input"  type="radio" value="Male" name="Gender" formControlName="Gender"checked>
+                <label class="form-check-label" >
+                  Male
+                </label>
+              </div>
+              &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="Female" name="Gender" formControlName="Gender" value="Female">
+                <label class="form-check-label" >
+                  Female
+                </label>
+              </div> </div> </td></tr>
+                <br/>
+              <tr><td>  <label>Appointment date:</label></td>
+                <td> <input type= "date"  name="date" formControlName = "date"> 
+                  <small  *ngIf="aptForm.controls['date'].touched && aptForm.controls['date'].invalid" class="text-danger">
+                    <div style="margin-left:20px ;" *ngIf="aptForm.controls['date'].errors.required"><span style="float:right;">DoctorName is required.</span></div>
+                  
+                   </small>
+                </td></tr>
+                <br>
+                
+                        <tr><td><div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-clock"></i></span><input type="time" name="time" formControlName="time"   >
+                          <small  *ngIf="aptForm.controls['time'].touched && aptForm.controls['time'].invalid" class="text-danger">
+                            <div style="margin-left:20px ;" *ngIf="aptForm.controls['time'].errors.required"><span style="float:right;">Appointment Time is required.</span></div>
+                          
+                           </small></div>
+                        </td></tr>
+      
+                   <br>
+                   <tr><td>  <label>Issue:</label></td>
+                    <td><input type="text" name="Issue" formControlName="issue"   >
+                      <small  *ngIf="aptForm.controls['issue'].touched && aptForm.controls['issue'].invalid" class="text-danger">
+                        <div style="margin-left:20px ;" *ngIf="aptForm.controls['issue'].errors.required"><span style="float:right;">DoctorName is required.</span></div>
+                      
+                       </small>
+                    </td></tr>
+                        
+                         
+                    <tr><td align="center" colspan="2">  <button type="submit" value="Submit" (click)="onSubmit(aptForm.value)">Submit</button> </td></tr>
+         </table>
+        </form>
+      </div>
+      
+      <div>
+      <table  border="4px" align="center">
+          
+          <thead>
+            <tr>
+              <th>DoctorName</th>
+              <th>Speciality</th>
+              <th>PatientName</th>
+              <th>PatientAge</th>
+              <th>Gender</th>
+              <th>Appointment Date</th>
+              <th>Appointment Time</th>
+      
+              <th>Issue</th>
+              <th>Cancel Booking</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody *ngFor="let l of aptformdata">
+            <tr>
+              <td>{{l.DoctorName}}</td>
+              <td>{{l.Speciality}}</td>
+              <td>{{l.PatientName}}</td>
+              <td>{{l.PatientAge}}</td>
+              <td>{{l.Gender}}</td>
+              <td>{{l.date}}</td>
+              <td>{{l.time}}</td>
+              <td>{{l.issue}}</td>
+              
+              <td><button class="btn btn-danger" (click)="delete(l.id)">Cancel</button></td>
+              
+            </tr>
+          </tbody>
+        </table>
+      
+      </div> -->
+
+
+      <!-- <div style="color:black;background-color:aqua;" class="div">
+    <h1 align="center">Appointment Form</h1>
+    </div>
+    <div align="center"> 
+        
+        <form   class="form"> 
+            <table>
+          <tr><td>  <label>Patient Name:</label></td>
+         <td> <input type= "text"  name="Name" formControlName = "Name"   </td></tr>
+           <br/>
+           
+           <tr><td>  <label> Patient Age:</label></td>
+            <td> <input type= "number"  name="Age" formControlName = "Age"> </td></tr>
+              <br/>
+              <tr><td>  <label>Gender:</label></td>
+                <td><input type="radio" name="Gender" formControlName="Gender" value="Male">Male
+                <input type="radio" name="Gender" formControlName="Gender" value="Female">Female</td></tr>
+                <br/>
+              <tr><td>  <label>Appointment date:</label></td>
+                <td> <input type= "date"  name="date" formControlName = "date"> </td></tr>
+                <br>
+                
+                        <tr><td>  <label>Appointment time:</label></td>
+                   <td><input type="time" name="time" formControlName="time"   ></td></tr>
+
+                   <br>
+                   <tr><td>  <label>Issue:</label></td>
+                    <td><input type="text" name="Issue" formControlName="issue"   ></td></tr>
+                        
+                         
+                    <tr><td align="center" colspan="2">  <button type="submit" value="Submit" >Submit</button> </td></tr>
+         </table>
+        </form> -->
+<!-- 
+        <div class="card my-2 mx-auto" id="signup_card">
+          <div class="card-header text-center">
+            <h1 id="heading" class="mb-0 heading">BOOK </h1>
+            <h1 id="green" class="mb-0 heading">APPOINTMENT</h1>
+          </div>
+          <div class="card-body">
+            <form class="needs-validation" id="bookAppointmentForm" >
+              <h6 class="heading-small text-muted mb-4">Appointment</h6>
+      
+      
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label" class="form-control-label" for="dateOfAppointment">Date Of
+                      Appointment</label><span class="required">*</span>
+                    <input type="date" class="form-control datepicker " id="dateOfAppointment"
+                      placeholder="Select Date Of Appointment" formControlName="dateOfAppointment" value="25/11/2019"
+                      [ngClass]="{ 'is-invalid': submitted && f.dateOfAppointment.errors }">
+                    <div *ngIf="submitted && f.dateOfAppointment.errors" class="invalid-feedback">
+                      <div *ngIf="f.dateOfAppointment.errors.required">Date Of Appointment is required</div>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="selectTimeSlot">Select Time Slot</label>
+                    <span class="required">*</span>
+                    <select id="selectTimeSlot" class="form-control " formControlName="selectTimeSlot"
+                      [ngClass]="{ 'is-invalid': submitted && f.selectTimeSlot.errors }" placeholder="Select Time Slot">
+                      <option value="1">10am - 12pm</option>
+                      <option value="2">2pm - 4pm</option>
+                      <option value="3">6pm - 9pm</option>
+                    </select>
+                    <div *ngIf="submitted && f.selectTimeSlot.errors" class="invalid-feedback">
+                      <div *ngIf="f.selectTimeSlot.errors.required">Time Slot is required</div>
+                    </div>
+                  </div>
+      
+                </div>
+      
+              </div>
+              <div class="row">
+                <div class="col-md-6 text-center">
+      
+                  <button id="button1" class="btn btn-primary px-5 py-3 ml-auto mr-auto" (click)="bookWithAgent()"
+                    (mouseover)="showPrice1=true" (mouseout)="showPrice1=false">
+                    Book via Agent<br>
+                    <span *ngIf="!showPrice1"></span>
+                    <span *ngIf="showPrice1">{{medicare.amount*((100+agent.commission)/100) | currency:"INR"}}</span>
+                  </button>
+                  <div class="text-center ml-8 mr-auto">
+                    <img id="icon_premium" src="../../assets/img/crown.png"
+                      class="avatar rounded-circle mt-2 mb-2 ml-auto mr-auto"> <span id="punchLine"
+                      class="mt-2 mb-2">&nbsp;Skip
+                      long
+                      waiting</span>
+                  </div>
+                </div>
+                <div class="col-md-6 text-center">
+                  <button id="button2" class="btn btn-primary px-5 py-3 ml-auto mr-auto" (click)="book()"
+                    (mouseover)="showPrice2=true" (mouseout)="showPrice2=false">
+                    Book Now<br>
+                    <span *ngIf="!showPrice2"></span>
+                    <span *ngIf="showPrice2">{{medicare.amount | currency:"INR"}}</span>
+                  </button>
+                </div>
+      
+              </div>
+              <div class="row">
+                <div class="col-md-6 text-center pr-auto pl-auto">
+      
+                </div>
+                <div class="col-md-6 text-center">
+      
+                </div>
+      
+              </div>
+      
+      
+      
+            </form>
+      
+          </div>
+        </div>
+       </div>
+       --> 
+       <div class="a">
+        <!-- <app-patienthome></app-patienthome> -->
+         <br>
+           <h1 align="center" style="color: darkgoldenrod;">Appointment Form</h1>
+         <div align="center"> 
+               
+           <form [formGroup]="aptForm" > 
+               <table >
+                 <tr>
+                   <!-- <td>  <label> Doctor Name:</label></td> -->
+                   <td><div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fas fa-user"></i></span>
+                   <input type= "text" placeholder="DoctorName" name="DoctorName" formControlName = "DoctorName"> 
+                     <small  *ngIf="aptForm.controls['DoctorName'].touched && aptForm.controls['DoctorName'].invalid" class="text-danger">
+                       <div style="margin-left:20px ;" *ngIf="aptForm.controls['DoctorName'].errors.required"><span style="float:right;">DoctorName is required.</span></div>
+                       
+                      </small> </div>
+                   </td>
+                   
+                 </tr>
+                 
+                   <br><br/>
+                   <tr>
+                     <!-- <td>  <label>Speciality:</label></td> -->
+                     <td><div class="input-group-prepend">
+                       <span class="input-group-text"><i class="fas fa-crown"></i></span> <select name="Speciality" formControlName="Speciality" placeholder="Speciality">
+                         <!-- <option value="" selected disabled hidden>Speciality</option> -->
+                       <option value="bone" >Bone</option>
+                       <option value="Heart" >Heart</option>
+                       <option value="Brain" >Brain</option>
+                       <option value="Kidney">Kidney</option>
+                     </select>
+                     <small  *ngIf="aptForm.controls['Speciality'].touched && aptForm.controls['Speciality'].invalid" class="text-danger">
+                       <div style="margin-left:20px ;" *ngIf="aptForm.controls['Speciality'].errors.required"><span style="float:right;">Doctor Speciality is required.</span></div>
+                     
+                      </small></div>
+                   </td></tr>
+                     <br><br/>
+             <tr>
+               <!-- <td>  <label>Patient Name:</label></td> -->
+            <td><div class="input-group-prepend">
+             <span class="input-group-text"><i class="fas fa-user"></i></span> <input type= "text" placeholder="Your Name"  name="PatientName" formControlName = "PatientName"   > 
+             <small  *ngIf="aptForm.controls['PatientName'].touched && aptForm.controls['PatientName'].invalid" class="text-danger">
+               <div style="margin-left:20px ;" *ngIf="aptForm.controls['PatientName'].errors.required"><span style="float:right;">Your Name is required.</span></div>
+             
+              </small></div>
+           </td></tr>
+              <br/>
+              
+              
+              <tr>
+                <!-- <td>  <label> Patient Age:</label></td> -->
+               <td> <div class="input-group-prepend">
+                 <span class="input-group-text"><i class="fas fa-pen-square"></i></span><input type= "number"  name="PatientAge" formControlName = "PatientAge" placeholder="Age">
+                 <small  *ngIf="aptForm.controls['PatientAge'].touched && aptForm.controls['PatientAge'].invalid" class="text-danger">
+                   <div style="margin-left:20px ;" *ngIf="aptForm.controls['PatientAge'].errors.required"><span style="float:right;">Your Age is required.</span></div>
+                 
+                  </small></div>
+               </td></tr>
+                 <br/>
+                 <tr> <td><div class="input-group-prepend">
+                   <span class="input-group-text"> <i class="fas fa-user-edit"></i></span>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <div class="form-check">
+                   <input class="form-check-input"  type="radio" value="Male" name="Gender" formControlName="Gender"checked>
+                   <label class="form-check-label" >
+                     Male
+                   </label>
+                 </div>
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <div class="form-check">
+                   <input class="form-check-input" type="radio" value="Female" name="Gender" formControlName="Gender" value="Female">
+                   <label class="form-check-label" >
+                     Female
+                   </label>
+                 </div> </div> </td></tr>
+                   <br>
+                   
+                           <tr>
+                             <!-- <td>  <label>Appointment time:</label></td> -->
+                      <td><div class="input-group-prepend">
+                       <span class="input-group-text"><i class="fas fa-clock"></i></span><input type="time" name="time" formControlName="time"   >
+                       <small  *ngIf="aptForm.controls['time'].touched && aptForm.controls['time'].invalid" class="text-danger">
+                         <div style="margin-left:20px ;" *ngIf="aptForm.controls['time'].errors.required"><span style="float:right;">Appointment Time is required.</span></div>
+                       
+                        </small></div>
+                     </td></tr>
+         
+                      <br>
+                      <tr>
+                        <!-- <td>  <label>Appointment date:</label></td> -->
+                        <td> <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-clock"></i></span><input type= "date"  name="date" formControlName = "date"> 
+                          <small  *ngIf="aptForm.controls['date'].touched && aptForm.controls['date'].invalid" class="text-danger">
+                            <div style="margin-left:20px ;" *ngIf="aptForm.controls['date'].errors.required"><span style="float:right;">Appointment Date is required.</span></div>
+                          
+                           </small></div>
+                        </td></tr><br><br>
+                      <tr>
+
+                        <!-- <td>  <label>Issue:</label></td> -->
+                       <td><div class="input-group-prepend">
+                         <span class="input-group-text"><i class="far fa-id-card"></i></span><input type="text" placeholder="Reason for Appointment" name="Issue" formControlName="issue"   >
+                         <small  *ngIf="aptForm.controls['issue'].touched && aptForm.controls['issue'].invalid" class="text-danger">
+                           <div style="margin-left:20px ;" *ngIf="aptForm.controls['issue'].errors.required"><span style="float:right;">Required.</span></div>
+                         
+                          </small></div>
+                       </td></tr>
+                           <br>
+                            
+                       <tr><td align="center" colspan="2">  <button type="submit" value="Submit" class="btn  login_btn" (click)="onSubmit(aptForm.value)">Submit</button> </td></tr>
+            </table>
+           </form>
+         </div>
+        
+         <div>
+         <table class="table-dark"  style="color:rgb(179, 250, 179);width: 100%;" border="4" align="center">
+             
+             <thead>
+               <tr>
+                 <th>DoctorName</th>
+                 <th>Speciality</th>
+                 <th>PatientName</th>
+                 <th>PatientAge</th>
+                 <th>Gender</th>
+                 <th>Appointment Date</th>
+                 <th>Appointment Time</th>
+         
+                 <th>Issue</th>
+                 <th>Cancel Booking</th>
+                 
+                 
+               </tr>
+             </thead>
+             <tbody *ngFor="let l of aptformdata">
+               <tr>
+                 <td>{{l.DoctorName}}</td>
+                 <td>{{l.Speciality}}</td>
+                 <td>{{l.PatientName}}</td>
+                 <td>{{l.PatientAge}}</td>
+                 <td>{{l.Gender}}</td>
+                 <td>{{l.date}}</td>
+                 <td>{{l.time}}</td>
+                 <td>{{l.issue}}</td>
+                 
+                 <td><button class="btn btn-danger" (click)="delete(l.id)">Cancel</button></td>
+                 
+               </tr>
+             </tbody>
+           </table>
+         
+         </div> </div>

@@ -1,0 +1,33 @@
+<!-- <div align="center" style="height: 20px; background-color:cyan; padding: 20px;">
+  <a class="a" href="">Home</a>
+  <a href="C:\Users\001A9G744\Desktop\JS\Angular\Doctor's app\doctor\src\app\appointment\appointment-add\appointment-add.component.html">Appointment</a>
+  <a href="C:\Users\001A9G744\Desktop\JS\Angular\Doctor's app\doctor\src\app\doctor\doctor.component.html">Doctors</a>
+  <a href="#">About</a>
+</div> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand"  *ngIf="loginService.isUserLoggedIn()"  routerLink="/doctorhome">Doctor App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+         
+          <li class="nav-item">
+            <a class="nav-link"  *ngIf="loginService.isUserLoggedIn()"  routerLink="/patreq">Patient Request</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  *ngIf="loginService.isUserLoggedIn()" routerLink="/medicalrecord">Medical History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page"  *ngIf="loginService.isUserLoggedIn()"  routerLink="/logout">Logout</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="im"></div>

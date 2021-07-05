@@ -1,0 +1,17 @@
+.example-card {
+  min-width:20%;
+    background-color:powderblue;
+}
+.card{
+    display: inline;
+    margin:10px;
+    text-align:right;
+    
+}
+.im{
+    background-image: url('src/assets/image/a.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}

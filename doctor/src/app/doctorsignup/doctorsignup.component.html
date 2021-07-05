@@ -1,0 +1,154 @@
+<div class="a">
+
+    <div class="header"><h1>Registration Form</h1></div>
+    <br>
+    <div class="showform">
+    <div class="container h-100">
+      <div class="row h-100 justify-content-center align-items-center">
+          <div class="col-10 col-md-8 col-lg-6">
+    <form [formGroup]="doctorForm" class="form-inline show">
+    
+    
+      <br>
+      <div class="form-group">
+        <!-- <label class="col-sm-3">Name<span class="required">*</span></label> -->
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-user"></i></span>
+        </div>
+        <input type="text"  class="form-control" formControlName="doctorname" placeholder="Name">
+        <div  *ngIf="doctorForm.controls['doctorname'].touched && doctorForm.controls['doctorname'].invalid" class="text-danger">
+          <div style="margin-left:20px ;" *ngIf="doctorForm.controls['doctorname'].errors.required"><span style="float:right;">doctorname is required.</span></div>
+        </div>
+        
+      </div>
+    
+    <br>
+      <br>
+      <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="form-group">
+        <!-- <label class="col-sm-3">email id<span class="required">*</span></label>-->
+         <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+        </div> 
+    
+        <input type="text"  class="form-control" formControlName="doctoremail" placeholder="Email">
+        <div  *ngIf="doctorForm.controls['doctoremail'].touched && doctorForm.controls['doctoremail'].invalid" class="text-danger">
+          <div style="margin-left:20px ;" *ngIf="doctorForm.controls['doctoremail'].errors.required"><span style="float:right;">doctoremail is required.</span></div>
+          <div *ngIf="doctorForm.controls['doctoremail'].errors.pattern">
+            Must be a valid email format.
+          </div>
+        </div>
+        
+      </div>
+      <br>
+      <br>
+
+      <br>
+      <div class="form-group">
+        <!-- <label class="col-sm-3">Speciality<span class="required">*</span></label> -->
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-crown"></i></span>
+        </div> 
+    
+    
+        <input type="text"  class="form-control" formControlName="doctorspeciality" placeholder=" specialiy">
+        <div  *ngIf="doctorForm.controls['doctorspeciality'].touched && doctorForm.controls['doctorspeciality'].invalid" class="text-danger">
+          <div style="margin-left:20px ;" *ngIf="doctorForm.controls['doctorspeciality'].errors.required"><span style="float:right;">doctorname is required.</span></div>
+        </div>
+        
+      </div><br><br><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="form-group">
+        <!-- <label class="col-sm-3">Password<span class="required">*</span></label>
+         -->
+         <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-key"></i></span>
+        </div> 
+    
+        <input type="password" class="col-sm-9" class="form-control" formControlName="password" placeholder="password">
+        <div  *ngIf="doctorForm.controls['password'].touched && doctorForm.controls['password'].invalid" class="text-danger">
+          <div style="margin-left:20px ;" *ngIf="doctorForm.controls['password'].errors.required"><span style="float:right;">Password is required.</span></div>
+          <div *ngIf="doctorForm.controls['password'].errors.pattern">
+            Password should be at least 8 characters long and should contain one number,one character and one special character
+          </div>
+        </div>
+        
+      </div>
+      <br>
+      <br>
+      
+      <div class="form-group">
+        <!-- <label class="col-sm-3">Password<span class="required">*</span></label>
+         -->
+         <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-pen-square"></i></span>
+        </div> 
+        <!-- <label class="col-sm-3">Age</label> -->
+    
+        <input type="number"  class="form-control" formControlName="doctorage" required placeholder="Age">
+       
+        
+      </div>
+      <br>
+      <br>
+      
+      <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="form-group" >
+        <!-- <label class="col-sm-3">Gender</label> -->
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fas fa-user-edit"></i></span>
+        </div> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       
+         <!--<div>
+          <input type="radio" value="Male" name="doctorgender" formControlName="doctorgender">
+          <label class="col-sm-6">Male</label>
+       </div>
+    &nbsp;
+    
+       <div>
+          <input type="radio" value="Female" name="doctorgender" formControlName="doctorgender">
+          <label >Female</label>
+       </div> -->
+       <div class="form-check">
+        <input class="form-check-input"  type="radio" value="Male" name="doctorgender" formControlName="doctorgender"checked>
+        <label class="form-check-label" >
+          Male
+        </label>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="Female" name="doctorgender" formControlName="doctorgender" value="option2">
+        <label class="form-check-label" >
+          Female
+        </label>
+      </div>
+       </div>
+     
+     <br>
+     <br>
+     <br>
+     <div class="col-sm-12 text-center" >
+      <button class="btn  login_btn"  type="submit" (click)=onSubmit(doctorForm.value) >Submit</button>
+      <br>
+      <br>
+      <br>
+      <a routerLink="/doctorlogin" style="font-size:30px;">Login?</a>
+     </div>
+    </form> 
+    
+      </div>
+      </div>
+    </div>
+      </div>
+      </div>
+      <!-- <table width="100%"><th>Name</th><th>Email</th><th>Speciality</th>
+      <tbody *ngFor="let d of doctorformdata">
+        <tr><td>{{d.doctorname}}</td>
+      <td>{{d.doctoremail}}</td>
+     <td>{{d.doctorspeciality}}</td></tr>
+    
+      </tbody>
+      
+      </table> -->
+      <!-- <hr> -->
+      <router-outlet></router-outlet>

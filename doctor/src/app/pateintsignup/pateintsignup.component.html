@@ -1,0 +1,116 @@
+ <div class="div">
+ <div  style="color:White;" >
+
+    <h1 align="center">Patient Registration</h1>
+    </div>
+    <div align="center"> 
+        
+        <form [formGroup]="patientForm" class="form"> 
+            <table>
+          <tr>
+           
+            <td><div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user"></i></span> <input type= "text" placeholder="Name"  name="Name" formControlName = "Name" ></div> </td></tr>
+           <br/>
+           
+           <tr> <td>  <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-pen-square"></i></span>
+         <input type= "number" placeholder="Age" name="Age" formControlName = "Age">  </div> </td></tr>
+              <br/>
+              <tr>
+                <td>  
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-user-edit"></i></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="form-check">
+                    <input class="form-check-input"  type="radio" value="Male" name="Gender" formControlName="Gender"checked>
+                    <label class="form-check-label" >
+                      Male
+                    </label>
+                  </div>
+                  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" value="Female" name="Gender" formControlName="Gender" value="Female">
+                    <label class="form-check-label" >
+                      Female
+                    </label>
+                  </div> </div> </td>
+                  <!-- <label>Gender:</label> --> 
+                <!-- </td> -->
+             
+                  
+                  <!-- <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user"></i></span><input type="radio" name="Gender" formControlName="Gender" value="Male">Male
+                <input type="radio" name="Gender" formControlName="Gender" value="Female">Female</div> -->
+            </tr>
+                <br/>
+              <tr>
+                <!-- <td>  <label>Email:</label
+                  ></td> -->
+                <td> <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+               <input type= "email" placeholder="Email" name="Email" formControlName = "Email">  <small  *ngIf="patientForm.controls['Email'].touched && patientForm.controls['Email'].invalid" class="text-primary">
+                    <small style="margin-left:20px ;" *ngIf="patientForm.controls['Email'].errors.required"><span style="float:right;">Email is required.</span></small>
+                    <small *ngIf="patientForm.controls['Email'].errors.pattern">
+                      Must be a valid email format.
+                    </small>
+                </small>  </div> </td></tr>
+               
+                <br>
+                
+                        <tr>
+                          <!-- <td>  <label>Password:</label></td> -->
+                   <td><div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span><input placeholder="Password" type="Password" name="Password" formControlName="Password" >
+                    <div  *ngIf="patientForm.controls['Password'].touched && patientForm.controls['Password'].invalid" class="text-primary">
+                        <div style="margin-left:20px ;" *ngIf="patientForm.controls['Password'].errors.required"><span style="float:right;">Password is required.</span></div>
+                        <div *ngIf="patientForm.controls['Password'].errors.pattern">
+                          Password should be at least 8 characters long and should contain one number,one character and one special character
+                        </div>
+                      </div>
+               </div> </td></tr>
+                   
+                   <br>
+                        
+                         
+                    <tr><td align="center" colspan="2">  <button class="btn  login_btn"  value="Submit" (click)="onSubmit(patientForm.value)" routerLink="/patienthome">Submit</button> </td></tr>
+         </table>
+        </form>
+    
+        
+        </div>
+      </div>
+   
+     <div>
+    <table  width="50%" border="4px" align="center">
+        
+        <thead>
+          <tr>
+            <!-- <th>Name</th> -->
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Email</th> 
+
+           <!-- <th>Password</th>  -->
+            <!-- <th>Action</th> -->
+            
+         
+          </tr>
+        </thead>
+        <tbody *ngFor="let l of patientformdata">
+          <tr>
+            <td>{{l.Name}}</td>
+            <!-- <td>{{l.Age}}</td> -->
+            <td>{{l.Gender}}</td>
+            <td>{{l.Email}}</td> 
+            <!-- <td>{{l.Password}}</td>
+            
+          <td><button class="btn btn-danger" (click)="deleteRow()">Delete</button></td> -->
+            
+      </tr>
+         </tbody>
+      </table>
+    
+</div>
+ 
+<router-outlet></router-outlet>

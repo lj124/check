@@ -1,0 +1,182 @@
+
+
+<!-- <div  style="color:black;background-color:aqua;" class="div">
+    <h1 align="center">Patient Form</h1>
+    </div>
+    <div align="center"> 
+        
+        <form [formGroup]="formdata" (ngSubmit)="onSubmit(formdata.value)" class="form"> 
+            <table>
+          <tr><td>  <label>Name:</label></td>
+         <td> <input type= "text"  name="Name" formControlName = "Name" > </td></tr>
+           <br/>
+           
+            <td> <input type= "number"  name="Age" formControlName = "Age"> </td>
+              <br/>
+              <tr><td>  <label>Gender:</label></td>
+                <td><input type="radio" name="Gender" formControlName="Gender" value="Male">Male
+                <input type="radio" name="Gender" formControlName="Gender" value="Female">Female</td></tr>
+                <br/>
+              <tr><td>  <label>Email:</label></td>
+                <td> <input type= "email"  name="Email" formControlName = "Email">  <small  *ngIf="formdata.controls['Email'].touched && formdata.controls['Email'].invalid" class="text-primary">
+                    <small style="margin-left:20px ;" *ngIf="formdata.controls['Email'].errors.required"><span style="float:right;">Email is required.</span></small>
+                    <small *ngIf="formdata.controls['Email'].errors.pattern">
+                      Must be a valid email format.
+                    </small>
+                </small> </td></tr>
+               
+                <br>
+                
+                        <tr><td>  <label>Password:</label></td>
+                   <td><input type="Password" name="Password" formControlName="Password" >
+                    <div  *ngIf="formdata.controls['Password'].touched && formdata.controls['Password'].invalid" class="text-primary">
+                        <div style="margin-left:20px ;" *ngIf="formdata.controls['Password'].errors.required"><span style="float:right;">Password is required.</span></div>
+                        <div *ngIf="formdata.controls['Password'].errors.pattern">
+                          Password should be at least 8 characters long and should contain one number,one character and one special character
+                        </div>
+                      </div>
+                </td></tr>
+                   
+                   <br>
+                        
+                         
+                    <tr><td align="center" colspan="2">  <button type="submit" value="Submit" >Submit</button> </td></tr>
+         </table>
+        </form>
+    
+        
+        </div>
+      
+   
+     <div>
+    <table  border="4px" align="center">
+        
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Email</th>
+
+            <th>Password</th>
+            <th>Action</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody *ngFor="let l of List">
+          <tr>
+            <td>{{l.Name}}</td>
+            <td>{{l.Age}}</td>
+            <td>{{l.Gender}}</td>
+            <td>{{l.Email}}</td>
+            <td>{{l.Password}}</td>
+            
+            <td><button class="btn btn-danger" (click)="deleteRow()">Delete</button></td>
+            
+          </tr>
+        </tbody>
+      </table>
+    
+</div>  -->
+
+<!-- <div >
+  <div><h1 style="color: blue;">Login Form</h1></div>
+ <br>
+ <div class="showform">
+ <div class="container h-100">
+   <div class="row h-100 justify-content-center align-items-center">
+    <!-- <div class="col-10 col-md-8 col-lg-6"> -->
+ <!-- <form class="form-inline show">
+ 
+  
+ 
+   <br>
+   <div class="form-group">
+     <label class="col-sm-6">Enter email<span class="required">*</span></label>
+ 
+     <input type="text"  class="form-control" > -->
+     <!-- <div  *ngIf="formdata.controls['Name'].touched && formdata.controls['Name'].invalid" class="text-danger">
+       <div style="margin-left:20px ;" *ngIf="formdata.controls['Name'].errors.required"><span style="float:right;">Name is required.</span></div>
+       <div *ngIf="formdata.controls['Name'].errors.pattern">
+         Must be a valid email format.
+       </div>
+     </div>  -->
+     
+   <!-- </div>
+  
+   <div class="form-group">
+     <label class="col-sm-6">Password<span class="required">*</span></label>
+ 
+     <input type="Password"  class="form-control" >
+      -->
+     <!-- <div  class="col-sm-6"  *ngIf="formdata.controls['Password'].touched && formdata.controls['Password'].invalid" class="text-danger">
+     <div style="margin-left:20px ;" *ngIf="formdata.controls['Password'].errors.required"><span style="float:right;">Password is required.</span></div>
+     
+   </div> -->
+<!--  
+ </div> 
+ 
+  
+ 
+ 
+  <div class="col-sm-12 text-center" >
+   <button class="btn btn-info btn-block" routerLink="/patienthome">Login</button>
+  </div>
+ </form> 
+ </div>
+ </div> -->
+  <!-- </div>  -->
+ <!-- </div> 
+ <router-outlet></router-outlet> --> 
+<!-- 
+ <div class="container">
+  <div >
+    Email: <input type="text" name="Email" [(ngModel)]="Email">
+    Password : <input type="password" name="Password" [(ngModel)]="Password">
+  </div>
+  <button (click)=checkLogin()  class="btn btn-success">
+    Login
+  </button>
+</div> -->
+
+
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3>Sign In</h3>
+         
+        </div>
+        <div class="card-body">
+     
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Email" [(ngModel)]="Email">
+              
+            </div>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input type="password" class="form-control" placeholder="password" [(ngModel)]="Password">
+            </div>
+           
+            <div class="form-group">
+              <input type="submit" value="Login"  (click)=checkLogin()  class="btn float-right login_btn">
+            </div>
+    
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+            Don't have an account?<a roouterLink="/doctorsignup">Sign Up</a>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>

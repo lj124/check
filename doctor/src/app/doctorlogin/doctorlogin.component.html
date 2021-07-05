@@ -1,0 +1,206 @@
+<!-- 
+<!-- <div>
+<div class="header"><h1>Registration Form</h1></div>
+<br>
+<div class="showform">
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-10 col-md-8 col-lg-6">
+<form [formGroup]="doctorForm" class="form-inline show" (ngSubmit)="onSubmit(doctorForm.value)">
+
+  <div class="form-group">
+    <label class="col-sm-3">ID<span class="required">*</span></label>
+    <input  type="number" class="form-control" formControlName="doctorid"> 
+    <br>
+    <div *ngIf="doctorForm.controls['doctorid'].touched && doctorForm.controls['doctorid'].invalid" class="text-danger">
+       <div style="margin-left:20px ;" *ngIf="doctorForm.controls['doctorid'].errors.required"><span style="float:right;">ID is required.</span></div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label class="col-sm-3">Name<span class="required">*</span></label>
+
+    <input type="text"  class="form-control" formControlName="doctorname">
+    <div  *ngIf="doctorForm.controls['doctorname'].touched && doctorForm.controls['doctorname'].invalid" class="text-danger">
+      <div style="margin-left:20px ;" *ngIf="doctorForm.controls['doctorname'].errors.required"><span style="float:right;">doctorname is required.</span></div>
+    </div>
+    
+  </div>
+
+
+  <br>
+  <div class="form-group">
+    <label class="col-sm-3">email id<span class="required">*</span></label>
+
+    <input type="text"  class="form-control" formControlName="doctoremail">
+    <div  *ngIf="doctorForm.controls['doctoremail'].touched && doctorForm.controls['doctoremail'].invalid" class="text-danger">
+      <div style="margin-left:20px ;" *ngIf="doctorForm.controls['doctoremail'].errors.required"><span style="float:right;">doctoremail is required.</span></div>
+      <div *ngIf="doctorForm.controls['doctoremail'].errors.pattern">
+        Must be a valid email format.
+      </div>
+    </div>
+    
+  </div>
+  <br>
+  <div class="form-group">
+    <label class="col-sm-3">Speciality<span class="required">*</span></label>
+
+    <input type="text"  class="form-control" formControlName="doctorspeciality">
+    <div  *ngIf="doctorForm.controls['doctorspeciality'].touched && doctorForm.controls['doctorspeciality'].invalid" class="text-danger">
+      <div style="margin-left:20px ;" *ngIf="doctorForm.controls['doctorspeciality'].errors.required"><span style="float:right;">doctorname is required.</span></div>
+    </div>
+    
+  </div><br>
+  <div class="form-group">
+    <label class="col-sm-3">Password<span class="required">*</span></label>
+
+    <input type="password" class="col-sm-9" class="form-control" formControlName="password">
+    <div  *ngIf="doctorForm.controls['password'].touched && doctorForm.controls['password'].invalid" class="text-danger">
+      <div style="margin-left:20px ;" *ngIf="doctorForm.controls['password'].errors.required"><span style="float:right;">Password is required.</span></div>
+      <div *ngIf="doctorForm.controls['password'].errors.pattern">
+        Password should be at least 8 characters long and should contain one number,one character and one special character
+      </div>
+    </div>
+    
+  </div>
+  <br>
+  
+  <div class="form-group">
+    <label class="col-sm-3">Age</label>
+
+    <input type="number"  class="form-control" formControlName="doctorage">
+   
+    
+  </div>
+  <br>
+  <div class="form-group" >
+    <label class="col-sm-3">Gender</label>
+    <div>
+      <input type="radio" value="Male" name="doctorgender" formControlName="doctorgender">
+      <label class="col-sm-6">Male</label>
+   </div>
+&nbsp;
+
+   <div>
+      <input type="radio" value="Female" name="doctorgender" formControlName="doctorgender">
+      <label >Female</label>
+   </div>
+   </div>
+
+ <br>
+ <div class="col-sm-12 text-center" >
+  <button class="btn btn-info btn-block">Submit</button>
+ </div>
+</form> 
+  </div>
+  </div>
+</div>
+  </div>
+  <table width="100%"><th>Name</th><th>Email</th><th>Speciality</th>
+  <tbody *ngFor="let d of doctorformdata">
+    <tr><td>{{d.doctorname}}</td>
+  <td>{{d.doctoremail}}</td>
+ <td>{{d.doctorspeciality}}</td></tr>
+
+  </tbody>
+  
+  </table>
+  <hr> -->
+<!-- <div >
+ <div><h1 style="color: blue;">Login Form</h1></div>
+<br>
+<div class="showform">
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center"> -->
+   <!-- <div class="col-10 col-md-8 col-lg-6"> -->
+<!-- <form [formGroup]="doctorForm" class="form-inline show" (ngSubmit)="onSubmit(doctorForm.value)">
+
+ 
+
+  <br>
+  <div class="form-group">
+    <label class="col-sm-6">Enter email<span class="required">*</span></label>
+
+    <input type="text"  class="form-control" formControlName="doctoremail">
+    <div  *ngIf="doctorForm.controls['doctoremail'].touched && doctorForm.controls['doctoremail'].invalid" class="text-danger">
+      <div style="margin-left:20px ;" *ngIf="doctorForm.controls['doctoremail'].errors.required"><span style="float:right;">doctoremail is required.</span></div>
+      <div *ngIf="doctorForm.controls['doctoremail'].errors.pattern">
+        Must be a valid email format.
+      </div>
+    </div> 
+    
+  </div>
+ 
+  <div class="form-group">
+    <label class="col-sm-6">Password<span class="required">*</span></label>
+
+    <input type="password"  class="form-control" formControlName="password">
+    
+    <div  class="col-sm-6"  *ngIf="doctorForm.controls['password'].touched && doctorForm.controls['password'].invalid" class="text-danger">
+    <div style="margin-left:20px ;" *ngIf="doctorForm.controls['password'].errors.required"><span style="float:right;">Password is required.</span></div>
+    
+  </div>
+
+</div>  -->
+
+ 
+
+
+ <!-- <div class="col-sm-12 text-center" >
+  <button class="btn btn-info btn-block" routerLink="/doctorhome">Login</button>
+ </div>
+</form> 
+</div>
+</div> -->
+ <!-- </div>  -->
+<!-- </div>   -->
+
+<!-- 
+<div class="container">
+  <div >
+    Email: <input type="text" name="Email" [(ngModel)]="Email">
+    Password : <input type="password" name="Password" [(ngModel)]="Password">
+  </div>
+  <button (click)=checkLogin()  class="btn btn-success">
+    Login
+  </button>
+</div> -->
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3>Sign In</h3>
+         
+        </div>
+        <div class="card-body">
+     
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Email" [(ngModel)]="Email">
+              
+            </div>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input type="password" class="form-control" placeholder="password" [(ngModel)]="Password">
+            </div>
+           
+            <div class="form-group">
+              <input type="submit" value="Login" (click)=checkLogin()  class="btn float-right login_btn">
+            </div>
+    
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+            Don't have an account?<a href="#">Sign Up</a>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>

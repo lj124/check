@@ -1,0 +1,77 @@
+{
+  "patient": [
+    {
+      "id": 1,
+      "Name": "ABC",
+      "Email": "Lj@g.com",
+      "Gender": "Female"
+    },
+    {
+      "Name": "1",
+      "Age": 1,
+      "Gender": "",
+      "Email": "leena.jaswani@ibm.com",
+      "id": 2
+    },
+    {
+      "Name": "Likhitha",
+      "Age": 12,
+      "Gender": "Female",
+      "Email": "L@gmail.com",
+      "id": 4
+    },
+    {
+      "Name": "Sunny",
+      "Age": 23,
+      "Gender": "Male",
+      "Email": "S@gmail.com",
+      "id": 5
+    },
+    {
+      "Name": "Leena",
+      "Age": 22,
+      "Gender": "Female",
+      "Email": "L@gmail.com",
+      "id": 6
+    }
+  ],
+  "doctor": [
+    {
+      "id": 1,
+      "doctorname": "ABC",
+      "doctoremail": "LK@g.com",
+      "doctorgender": "Female",
+      "doctorspeciality": "Diabetes"
+    },
+    {
+      "id": 2,
+      "doctorname": "XYZ",
+      "doctoremail": "Lj@g.com",
+      "doctorgender": "Male",
+      "doctorspeciality": "Surgeon"
+    },
+    [],
+    {
+      "id": 3,
+      "doctorname": "JKL",
+      "doctoremail": "Kj@g.com",
+      "doctorgender": "Female",
+      "doctorspeciality": "Dermatologist"
+    },
+    {
+      "id": 4,
+      "doctorname": "ABC",
+      "doctoremail": "Ls@g.com",
+      "doctorgender": "Male",
+      "doctorspeciality": "Neurologist"
+    },
+    {
+      "doctorname": "HJK",
+      "doctorage": 20,
+      "doctoremail": "L@h.com",
+      "doctorgender": null,
+      "doctorspeciality": "Diabetes",
+      "id": 5
+    }
+  ]
+}

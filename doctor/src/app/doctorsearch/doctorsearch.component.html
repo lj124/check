@@ -1,0 +1,42 @@
+<!-- <app-patienthome></app-patienthome> -->
+<div class="im">
+<div align="center" style="color: cyan;">
+  
+    <h1>Doctor list</h1>
+  </div>
+  <div align="center">
+    <label for="gsearch">Search:</label>
+    <input class="form-control mr-sm-2" type="text" name="searchtext" placeholder="Search for doctor"
+          [(ngModel)]="searchtext" >
+
+  </div>
+  <br>
+  <!-- <div *ngFor="let m of Doctor">  
+   {{ m.doctorname }}  
+   {{ m.doctorspeciality }}  
+   {{ m.doctoremail }}  
+   {{ m.doctorname }}  
+</div>   -->
+<table class="table-striped"  border="1" style="width:100%;height:auto;color: wheat;">
+  <thead class="thead-dark">
+    <tr>
+    
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Speciality</th>
+    </tr>
+  </thead>
+  <tbody  *ngFor="let m of Doctor |  filter: searchtext;">
+    <tr>
+      <!-- <th scope="row"></th> -->
+      <td>{{ m.doctorname }}  
+        <td>   {{ m.doctoremail }}   </td> 
+        <td>   {{ m.doctorspeciality }}   </td> 
+     
+     
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+<!-- <app-doctorsignup [doc]="Doctor"></app-doctorsignup>   -->
