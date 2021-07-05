@@ -49,19 +49,32 @@ export class PatientserviceService {
   );
  
 }
-editPatient(Patient:Patient): Observable<Patient> {
-   const url = 'http://localhost:8000/api/patient/';
-   return this.httpClient.put<Patient>(url, Patient,this.httpOptions).pipe(
-      retry(3),
-      catchError(this.httpErrorHandler)
-   );
+// editPatient(Patient:Patient): Observable<Patient> {
+//    // const url = 'http://localhost:8000/api/patient/';
+//    // return this.httpClient.put<Patient>(url, Patient,this.httpOptions).pipe(
+//    //    retry(3),
+//    //    catchError(this.httpErrorHandler)
+
+//       return this.httpClient.put<Patient>('http://localhost:8080/api/patient',Patient);
+//       this.httpClientService.updateBook(this.book).subscribe(
+//    (book) => {
+//      this.bookAddedEvent.emit();
+//      this.router.navigate(['admin', 'books']);
+//    }
+//  );
+updatePatient(updatedBook: Patient) {
+   return this.httpClient.put<Patient>(this.PatientRestUrl , updatedBook);
  }
- updateContact(contact): Observable<Patient> {
-   const url = 'http://localhost:8000/api/patient/';
-   const body = {Name: contact.Name , EmailAddress: contact.Email, ContactNumber: contact.Gender,HomeAddress: contact.Age,Password:contact.Password };
-   return this.httpClient.put<Patient>(url + contact.id + '/', body,
-    this.httpOptions);
+    
  }
+
+//  updateContact(contact): Observable<Patient> {
+//    const url = 'http://localhost:8000/api/patient/';
+//    const body = {Name: contact.Name , EmailAddress: contact.Email, ContactNumber: contact.Gender,HomeAddress: contact.Age,Password:contact.Password };
+//    return this.httpClient.put<Patient>(url + contact.id + '/', body,
+//     this.httpOptions);
+//  }
+
 //  findPatient(Name:string): Observable<Patient> {
    // const url = 'http://localhost:8000/api/patient/'+Name;
    // return this.httpClient.get<Patient>(url, this.httpOptions)
@@ -76,4 +89,3 @@ editPatient(Patient:Patient): Observable<Patient> {
 //    );
 //  }
 // }
-}

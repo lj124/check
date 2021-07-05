@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PateintloginComponent } from '../pateintlogin/pateintlogin.component';
 import { Patient } from '../patient';
 import { PatientserviceService } from '../patient.service';
 
@@ -10,57 +11,66 @@ import { PatientserviceService } from '../patient.service';
   styleUrls: ['./patientprofile.component.css']
 })
 export class PatientprofileComponent implements OnInit {
-  Gender: any;
-pat:Patient;
-Name='';
-
-
+  // Gender: any;
+ l:Patient[];
+ pat:Patient;
+  Email='';
+  Password='';
+  F
   constructor(private patservice:PatientserviceService,private router:Router,private fb:FormBuilder) { }
 profileForm:FormGroup;
   ngOnInit(): void {
-    
     // this.patservice.get(localStorage.getItem('username')).subscribe(
-
-    // this.profileForm=this.fb.group({
-    //   Name: [res.result.Name, [Validators.required]],
-    //   Email: [res.result.Email, [Validators.required,  Validators.pattern('^[a-zA-Z0-9.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
-    //  Gender: new FormControl(res.result.Gender),
-    //   Age:  new FormControl(res.result.Age,[Validators.required]),
+    for(var i=0;i<this.l.length;i++){
+      
+    this.profileForm=this.fb.group({
+      Name: ['', [Validators.required]],
+      Email: ['', [Validators.required,  Validators.pattern('^[a-zA-Z0-9.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
+     Gender: new FormControl(''),
+      Age:  new FormControl('',[Validators.required]),
    
     
-    //   Password:['', ([Validators.required,  Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*[$@$!%*#?&])(?=.*?[0-9]).{8,20}$')])],
-    // })
+      Password:['', ([Validators.required,  Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*[$@$!%*#?&])(?=.*?[0-9]).{8,20}$')])],
+    })
+   
+    }
+
   
   }
   cancel(){
     this.router.navigate['/patientprofile']
   }
   update(){
-    // this.patservice.addPatientEntry(this.pat)
-    //     .subscribe( (_result) => this.getPatients());
-    //     alert("Success");
-    this.patservice.updateContact(this.pat.id).subscribe(
-      data => {
+    // this.patservice.editPatient(this.pat)
+    //     .subscribe( (_result) => this.getPatientEntries());
+    //     alert("Success");}
+   
+    //   this.router.navigate(['/patientprofile'], { queryParams: { action: 'edit', id: this.pat.id } });
+    this.patservice.updatePatient(this.pat).subscribe(
+      (data) => {
+        // this.bookAddedEvent.emit();
+        this.router.navigate(['/patientprofile']);
+      }
+    );
+    
 
-        this.getContacts();
-      },
-      error => {
-       
-      }
-    );
-  }
-  contacts:Patient[]
-  getContacts = () => {
-     
-    this.patservice.getPatientEntries().subscribe(
-      data => {
-        this.contacts = data;
-        
-      },
-      error => {
-       
-      }
-    );
-  }
+}
+// list:any;
+
+
+
+// }
+
+
+
+//  updateBook(updatedBook: Book) {
+//   return this.httpClient.put<Book>('http://localhost:8080/books/update', updatedBook);
+// }
+// this is service file
+// @PutMapping("/update")
+// public void updateBook(@RequestBody Book book) {
+//   bookRepository.save(book);
+// }
+
 
 }

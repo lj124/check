@@ -198,7 +198,7 @@ app.put("/api/patient/", (req, res, next) => {
      
    }
    db.run(
-      `UPDATE doctor SET
+      `UPDATE patient SET
          Name = ?, 
 
          Age = ?,
